@@ -7,7 +7,7 @@
 	Plugin Date: 
 	Plugin Author: Towhid Nategheian
 	Plugin License: GPLv2
-	Plugin Minimum Question2Answer Version: 1.6
+	Plugin Minimum Question2Answer Version: 1.5
 	Plugin Update Check URI: 
 */
 
