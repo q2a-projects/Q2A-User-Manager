@@ -15,7 +15,7 @@ class qa_html_theme_layer extends qa_html_theme_base {
 			}
 			if ( ($this->template=='admin') or ($this->request == 'users_management') ){
 				$this->content['navigation']['sub']['users_management'] = array(
-					'label' => 'Users',
+					'label' => 'User Manager',
 					'url' => qa_path_html('admin/users_management', array('page' => 1)),
 				);
 				if ($this->request == 'admin/users_management'){
