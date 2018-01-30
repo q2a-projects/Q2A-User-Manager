@@ -155,7 +155,7 @@ class admin_um {
 							<option value="sendconfirm">Send Email Confirmation</option>
 						</select>
 						<button id="do_action" class="qa-form-tall-button qa-form-tall-button-save btn btn-default" type="submit" name="do_action">Apply</button>
-						<a class="qa-form-tall-button qa-form-tall-button-save btn btn-default" href=' . qa_path_html('admin/user_register') . '>Add new user</a>
+						<a class="btn btn-default" href=' . qa_path_html('admin/user_register') . '>Add new user</a>
 					</div>
 					<div style="float:right;"><a id="checkall" href="#">Check All</a> / <a id="checknone" href="#">Check None</a></div>
 				</div>
