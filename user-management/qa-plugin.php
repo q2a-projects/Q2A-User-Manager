@@ -3,7 +3,7 @@
 	Plugin Name: User Management Tool
 	Plugin URI: http://QA-Themes.com
 	Plugin Description: 
-	Plugin Version: 1.0
+	Plugin Version: 1.1
 	Plugin Date: 
 	Plugin Author: Towhid Nategheian
 	Plugin License: GPLv2
