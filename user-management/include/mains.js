@@ -1,13 +1,13 @@
 /*
  * This combined file was created by the DataTables downloader builder:
- *   https://datatables.net/download
+ *	 https://datatables.net/download
  *
  * To rebuild or modify this file with the latest versions of the included
  * software please visit:
- *   https://datatables.net/download/#dt/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-html5-1.5.1/cr-1.4.1/r-2.2.1
+ *	 https://datatables.net/download/#dt/dt-1.10.16/b-1.5.1/b-colvis-1.5.1/b-html5-1.5.1/cr-1.4.1/r-2.2.1
  *
  * Included libraries:
- *   DataTables 1.10.16, Buttons 1.5.1, Column visibility 1.5.1, HTML5 export 1.5.1, Responsive 2.2.1
+ *	 DataTables 1.10.16, Buttons 1.5.1, Column visibility 1.5.1, HTML5 export 1.5.1, Responsive 2.2.1
  */
 
 /*!
@@ -348,73 +348,73 @@ this.pdfMake = this.pdfMake || {}; this.pdfMake.vfs = {
 
 $(document).ready(function() {
 	// create filters
-    $('#umtable tfoot th').each( function () {
-        var title = $('#umtable thead th').eq( $(this).index() ).text();
-        $(this).html( '<input type="text" class="um-filter" placeholder="'+title+'" />' );
-    } );
+	$('#umtable tfoot th').each( function () {
+		var title = $('#umtable thead th').eq( $(this).index() ).text();
+		$(this).html( '<input type="text" class="um-filter" placeholder="'+title+'" />' );
+	} );
 	// render table
-    var table = $('#umtable').DataTable( {
-        "lengthMenu": [[10,25,50,100,500, -1], [10,25,50,100,500, "All"]],
+	var table = $('#umtable').DataTable( {
+		"lengthMenu": [[10,25,50,100,500, -1], [10,25,50,100,500, "All"]],
 		dom: 'Bfrtlip',
 		"order": [[ 3, "desc" ]],
 
-        colVis: {
-            order: 'alpha',
+		colVis: {
+			order: 'alpha',
 			exclude: [ 0 ],
-            restore: "Restore",
-            showAll: "Show all",
-            showNone: "Show none"
-        },
-        buttons: [
-            {
-                extend: 'copyHtml5',
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
-            {
-                extend: 'excelHtml5',
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
-            {
-                extend: 'csvHtml5',
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
-            {
-                extend: 'pdfHtml5',
-                exportOptions: {
-                    columns: ':visible'
-                }
-            },
-            'colvis'
-        ],
-        aoColumnDefs: [
+			restore: "Restore",
+			showAll: "Show all",
+			showNone: "Show none"
+		},
+		buttons: [
+			{
+				extend: 'copyHtml5',
+				exportOptions: {
+					columns: ':visible'
+				}
+			},
+			{
+				extend: 'excelHtml5',
+				exportOptions: {
+					columns: ':visible'
+				}
+			},
+			{
+				extend: 'csvHtml5',
+				exportOptions: {
+					columns: ':visible'
+				}
+			},
+			{
+				extend: 'pdfHtml5',
+				exportOptions: {
+					columns: ':visible'
+				}
+			},
+			'colvis'
+		],
+		aoColumnDefs: [
 			{ aTargets: [0], bSortable: false }
 		],
-    });
-    // Apply the filter
-    $("#umtable tfoot input").on( 'keyup change', function () {
-        table
-            .column( $(this).parent().index()+':visible' )
-            .search( this.value )
-            .draw();
-    } );
+	});
+	// Apply the filter
+	$("#umtable tfoot input").on( 'keyup change', function () {
+		table
+			.column( $(this).parent().index()+':visible' )
+			.search( this.value )
+			.draw();
+	} );
 	
 	// select checkboxes
 	$('#checkall').click(function(event) {  //on click
 		$('.chk-user').each(function() { //loop through each checkbox
-			this.checked = true;  //select all checkboxes with class "chk-user"              
+			this.checked = true;  //select all checkboxes with class "chk-user"			  
 		});
 		event.preventDefault();
 	});
 	$('#checknone').click(function(event) {
 		$('.chk-user').each(function() { //loop through each checkbox
-			this.checked = false; //deselect all checkboxes with class "chk-user"                      
-		});        
+			this.checked = false; //deselect all checkboxes with class "chk-user"					  
+		});		
 		event.preventDefault();
 	});
 } );
