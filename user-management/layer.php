@@ -44,8 +44,7 @@ class qa_html_theme_layer extends qa_html_theme_base {
 		qa_html_theme_base::head_script();
 		global $qa_request;
 		if ( ($qa_request == 'admin/users_management') && (qa_get_logged_in_level()>=QA_USER_LEVEL_ADMIN) ){
-			//$this->output('<script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jqc-1.12.4/dt-1.10.15/cr-1.3.3/rr-1.2.0/datatables.min.js"></script>');  
-			$this->output('<script type="text/javascript" src="'. qa_opt('site_url') . $this->plugin_url .'include/mains.js?123"></script>');  
+			$this->output('<script type="text/javascript" src="'. qa_opt('site_url') . $this->plugin_url .'include/mains.js"></script>');  
 		}
 	}	
 
