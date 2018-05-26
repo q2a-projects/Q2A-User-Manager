@@ -101,7 +101,11 @@ class admin_um {
 		// Load limited users per page
 		$user_per_page = (int)qa_html(qa_opt('um_users_per_page'));
 		$current_page = (int)$_GET['page']-1;
-		$users_count = qa_db_read_one_value(qa_db_query_sub('SELECT count(*) FROM ^users;'));
+		if( qa_opt('um_users_filter')=='active' ){
+			$users_count = qa_db_read_one_value(qa_db_query_sub("SELECT count(*) FROM ^users JOIN (SELECT userid FROM ^userpoints) AS y ON ^users.userid=y.userid JOIN ^userpoints ON ^users.userid=^userpoints.userid"));
+		}else{
+			$users_count = qa_db_read_one_value(qa_db_query_sub("SELECT count(*) FROM ^users;"));
+		}
 		if($user_per_page == 0) $number_of_pages = 1; else $number_of_pages = ceil($users_count / $user_per_page);
 		if($user_per_page != 0 or $number_of_pages != 1){
 			$limit_users = ' LIMIT ' . $current_page*$user_per_page . ',' . $user_per_page;
@@ -127,11 +131,10 @@ class admin_um {
 			$page_form = '';
 		}
 		// Load active or all users
+		$extra_fields = ', aselects, aselecteds, qupvotes, qdownvotes, aupvotes, adownvotes, qvoteds, avoteds, upvoteds, downvoteds';
 		if( qa_opt('um_users_filter')=='active' ){
-			$extra_fields = ', aselects, aselecteds, qupvotes, qdownvotes, aupvotes, adownvotes, qvoteds, avoteds, upvoteds, downvoteds';
 			$load_filter = ' WHERE aselects <> 0 OR aselecteds <> 0 OR qupvotes <> 0 OR qdownvotes <> 0 OR aupvotes <> 0 OR adownvotes <> 0 OR qvoteds <> 0 OR avoteds <> 0 OR upvoteds <> 0 OR downvoteds <> 0';
 		}elseif( qa_opt('um_users_filter')=='inactive' ){
-			$extra_fields = ', aselects, aselecteds, qupvotes, qdownvotes, aupvotes, adownvotes, qvoteds, avoteds, upvoteds, downvoteds';
 			$load_filter = ' WHERE aselects = 0 AND aselecteds = 0 AND qupvotes = 0 AND qdownvotes = 0 AND aupvotes = 0 AND adownvotes = 0 AND qvoteds = 0 AND avoteds = 0 AND upvoteds = 0 AND downvoteds = 0';
 		}else{
 			$extra_fields = '';
