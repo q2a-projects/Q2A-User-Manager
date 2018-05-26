@@ -316,7 +316,6 @@ class admin_um {
 				
 				$output .= '<div class="qa-form-tall-ok">User was successfully added.</div>';
 				$this->added = true;
-				$output = '';
 				$username = '';
 				$password = $this->RandomPassword();
 				$email = '';
