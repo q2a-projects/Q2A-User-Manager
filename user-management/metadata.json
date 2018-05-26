@@ -7,7 +7,7 @@
     "author": "QA-Themes.com",
     "author_uri": "http://QA-Themes.com",
     "license": "MIT License",
-    "update_uri": "https://github.com/q2a-projects/Q2A-User-Manager/master/fast-editor/master/metadata.json",
+    "update_uri": "https://github.com/q2a-projects/Q2A-User-Manager/blob/master/user-management/metadata.json",
     "min_q2a": "1.5",
     "min_php": "5.2.0",
     "load_order": "after_db_init"
