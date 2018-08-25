@@ -101,6 +101,7 @@ class admin_um {
 		// Load limited users per page
 		$user_per_page = (int)qa_html(qa_opt('um_users_per_page'));
 		$current_page = (int)$_GET['page']-1;
+		if ($current_page<=0) $current_page=1;
 		if( qa_opt('um_users_filter')=='active' ){
 			$users_count = qa_db_read_one_value(qa_db_query_sub("SELECT count(*) FROM ^users JOIN (SELECT userid FROM ^userpoints) AS y ON ^users.userid=y.userid JOIN ^userpoints ON ^users.userid=^userpoints.userid"));
 		}else{
